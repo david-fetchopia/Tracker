@@ -2,6 +2,13 @@ import React, { Component } from "react";
 //import API from "../utils/API";
 import SearchForm from "../components/SearchForm";
 const $ = window.$;
+// Download the helper library from https://www.twilio.com/docs/node/install
+// Your Account Sid and Auth Token from twilio.com/console
+// DANGER! This is insecure. See http://twil.io/secure
+// const accountSid = 'AC45f78fac324e57dedfbb6128e00cc241';
+// const authToken = '4a24714d905226c0caef608052a8cf8b';
+// const client = require('twilio')(accountSid, authToken);
+
 class Main extends Component {
   state = {
     phone: "",
@@ -11,7 +18,7 @@ class Main extends Component {
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    // this.loadNextDog();
+    // this.loadMessage();
   }
 
   handleBtnClick = event => {
@@ -38,22 +45,22 @@ class Main extends Component {
     // this.loadNextDog();
   };
 
-  // loadNextDog = () => {
-  // API.getRandomDog()
-  //   .then(res =>
-  //     this.setState({
-  //       image: res.data.message
-  //     })
-  //   )
-  //   .catch(err => console.log(err));
-  // };
+  loadMessage = () => {
+    // client.messages
+    //   .create({
+    //     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+    //     from: '+15878706496',
+    //     to: '+16476406630'
+    //   })
+    //   .then(message => console.log(message.sid));
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
     var habit = document.getElementById("habit").value;
     var phone = document.getElementById("phone").value;
     var name = document.getElementById("name").value;
-    
+
     this.setState({
       habit: habit,
       phone: phone,
@@ -93,7 +100,7 @@ class Main extends Component {
             </div>
           </div>
         </div>
-      
+
       </div>
     );
   }
